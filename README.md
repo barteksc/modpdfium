@@ -27,3 +27,5 @@ You will need about 60 GB of free space.
 * `$ mma` and wait ~5 minutes
 * library is available in `~/android_src/out/target/product/generic*/obj/lib/libmodpdfium.so`, copy it somewhere
 * `$ rm -r ~/android_src/out` before next build
+
+It worked for me, but if doesn't work for you, try detailed instruction [here](https://github.com/barteksc/modpdfium/issues/1#issuecomment-259838427)
