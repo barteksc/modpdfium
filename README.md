@@ -1,8 +1,6 @@
 # modpdfium
-Modified pdfium library from tag _android-5.1.1_r37_ used for [PdfiumAndroid](https://github.com/barteksc/PdfiumAndroid).
-Version 5.1.1 is used because next releases contain additional dependecies.
-
-Added functions from 6.0.1 for finding bookmarks.
+Instructions for building Pdfium from tag _android-7.1.1_r28_ with modified makefiles.
+This library is used by [PdfiumAndroid](https://github.com/barteksc/PdfiumAndroid).
 
 ## How to build?
 I recommend building on Linux (virtual machine will suffice),
@@ -10,22 +8,20 @@ because Windows is officially not supported and there are many problems on newer
 
 You will need about 60 GB of free space.
 
-* install OpenJDK 7
+* install OpenJDK 8
 * `$ mkdir ~/android_src && cd ~/android_src` or select any other path
-* `$ repo init -u https://android.googlesource.com/platform/manifest -b android-5.1.1_r37`
+* `$ repo init -u https://android.googlesource.com/platform/manifest -b android-7.1.1_r28`
 
   (detailed description available [here](https://source.android.com/source/downloading.html))
-* `$ repo sync`
-* `$ cd external`
-* `$ rm -r pdfium`
-* `$ git clone https://github.com/barteksc/modpdfium.git pdfium`
-* `$ cd ..`
-* edit `build/core/version_defaults.mk` and change variable _PLATFORM_SDK_VERSION_ to 9 (not sure if this step is required)
+* `$ repo sync` and wait...
+* clone this repo (or download zip with its content)
+* replace makefiles in `~/android_src` with corresponding makefiles from this repo
+* `$ cd ~/android_src`
 * `$ source build/envsetup.sh`
 * `$ cd external/pdfium/fpdfsdk`
 * `$ lunch` and select architecture
 * `$ mma` and wait ~5 minutes
-* library is available in `~/android_src/out/target/product/generic*/obj/lib/libmodpdfium.so`, copy it somewhere
+* library is available in `~/android_src/out/target/product/generic*/obj/lib/libmod*.so`, copy it somewhere
 * `$ rm -r ~/android_src/out` before next build
 
-It worked for me, but if doesn't work for you, try detailed instruction [here](https://github.com/barteksc/modpdfium/issues/1#issuecomment-259838427)
+It worked for me, but if doesn't work for you, try installing additional packages listed [here](https://github.com/barteksc/modpdfium/issues/1#issuecomment-259838427).
