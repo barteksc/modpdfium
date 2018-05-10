@@ -1,5 +1,5 @@
 # modpdfium
-Instructions for building Pdfium from tag _android-7.1.1_r28_ with modified makefiles.
+Instructions for building Pdfium from tag _android-7.1.2_r36_ with modified makefiles.
 This library is used by [PdfiumAndroid](https://github.com/barteksc/PdfiumAndroid).
 
 ## How to build?
@@ -8,20 +8,22 @@ because Windows is officially not supported and there are many problems on newer
 
 You will need about 60 GB of free space.
 
+* install git
 * install OpenJDK 8
+* install [repo](https://source.android.com/setup/build/downloading)
 * `$ mkdir ~/android_src && cd ~/android_src` or select any other path
-* `$ repo init -u https://android.googlesource.com/platform/manifest -b android-7.1.1_r28`
+* `$ repo init --depth=1 -u https://android.googlesource.com/platform/manifest -b android-7.1.2_r36`
 
   (detailed description available [here](https://source.android.com/source/downloading.html))
-* `$ repo sync` and wait...
+* `$ repo sync -c -j 6` and wait...
 * clone this repo (or download zip with its content)
 * replace makefiles in `~/android_src` with corresponding makefiles from this repo
 * `$ cd ~/android_src`
 * `$ source build/envsetup.sh`
 * `$ cd external/pdfium/fpdfsdk`
 * `$ lunch` and select architecture
-* `$ mma` and wait ~5 minutes
+* `$ mma -j 6` and wait ~5 minutes
 * library is available in `~/android_src/out/target/product/generic*/obj/lib/libmod*.so`, copy it somewhere
 * `$ rm -r ~/android_src/out` before next build
 
-It worked for me, but if doesn't work for you, try installing additional packages listed [here](https://github.com/barteksc/modpdfium/issues/1#issuecomment-259838427).
+It worked for me, on a Ubuntu 16.04.4 64-bit VM I got from [OSBoxes](https://www.osboxes.org/ubuntu/). Just had to configure apt and install git/JDK.

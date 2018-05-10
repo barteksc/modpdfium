@@ -89,6 +89,7 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_SDK_VERSION := 9
 LOCAL_CPPFLAGS += -std=c++11
+LOCAL_NDK_STL_VARIANT := c++_shared
 LOCAL_CLANG := true
 LOCAL_SRC_FILES := $(common_SRC_FILES)
 LOCAL_SRC_FILES_arm := $(my_src_files_arm)
@@ -113,6 +114,7 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_SDK_VERSION := 9
 LOCAL_CPPFLAGS += -std=c++11
+LOCAL_NDK_STL_VARIANT := c++_shared
 LOCAL_CLANG := true
 LOCAL_SRC_FILES := $(common_SRC_FILES)
 LOCAL_SRC_FILES_arm := $(my_src_files_arm)
