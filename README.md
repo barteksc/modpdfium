@@ -18,7 +18,7 @@ You will need about 60 GB of free space.
 * `$ repo sync -c -j 6` and wait...
 * clone this repo (or download zip with its content)
 * replace makefiles in `~/android_src` with corresponding makefiles from this repo
-* `$ cd ~/android_src`
+* apply the fixes for [barteksc/AndroidPdfViewer#253](https://github.com/barteksc/AndroidPdfViewer/issues/253) described [here](https://issuetracker.google.com/issues/37131979#comment16)
 * `$ source build/envsetup.sh`
 * `$ cd external/pdfium/fpdfsdk`
 * `$ lunch` and select architecture
