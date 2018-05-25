@@ -13,7 +13,6 @@ LOCAL_CPPFLAGS += -std=c++11
 # when loading complex pages in the browser
 #
 LOCAL_ARM_MODE := arm
-LOCAL_NDK_STL_VARIANT := c++_shared
 
 LOCAL_SRC_FILES:= \
     src/base/ftbbox.c \
